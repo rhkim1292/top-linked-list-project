@@ -1,0 +1,31 @@
+{
+  "name": "top-linked-list-project",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Implementation of a Linked List in JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhkim1292/top-linked-list-project.git"
+  },
+  "keywords": [
+    "linked",
+    "list",
+    "lists",
+    "linkedlist",
+    "the",
+    "odin",
+    "project",
+    "theodinproject",
+    "top"
+  ],
+  "author": "Randy H Kim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rhkim1292/top-linked-list-project/issues"
+  },
+  "homepage": "https://github.com/rhkim1292/top-linked-list-project#readme"
+}
