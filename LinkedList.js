@@ -1,39 +1,61 @@
 import Node from './Node.js';
 
 class LinkedList {
-    constructor(head = null) { this._head = head; }
-    get size() {
-        if (this.head === 0) return 0;
-        let counter = 0;
-        let curr = this.head;
-        while (curr) {
-            counter++;
-            curr = curr.next;
-        }
-        return counter;
-    }
-    get head() { return this._head }
+  constructor(head = null) {
+    this._head = head;
+  }
 
-    append(value) {
-        if (!this._head) {
-            this._head = new Node(value);
-            return;
-        }
-        let curr = this._head;
-        while (curr.next) {
-            curr = curr.next;
-        }
-        curr.next = new Node(value);
+  append(value) {
+    if (!this._head) {
+      this._head = new Node(value);
+      return;
     }
+    let curr = this._head;
+    while (curr.next) {
+      curr = curr.next;
+    }
+    curr.next = new Node(value);
+  }
 
-    prepend(value) {
-        if (!this._head) {
-            this._head = new Node(value);
-            return;
-        }
-        const newHead = new Node(value, this._head);
-        this._head = newHead;
+  prepend(value) {
+    if (!this._head) {
+      this._head = new Node(value);
+      return;
     }
+    const newHead = new Node(value, this._head);
+    this._head = newHead;
+  }
+
+  size() {
+    let counter = 0;
+    let curr = this._head;
+    while (curr) {
+      counter++;
+      curr = curr.next;
+    }
+    return counter;
+  }
+
+  head() {
+    return this._head;
+  }
+
+  tail() {
+    let curr = this._head;
+    while (curr.next) {
+      curr = curr.next;
+    }
+    return curr;
+  }
+
+  at(index) {
+    let curr = this._head;
+    for (let i = 0; i < index; i++) {
+        curr = curr.next;
+        if (!curr) throw new Error('That index is out of bounds of the list!');
+    }
+    return curr;
+  }
 }
 
 const list = new LinkedList();
@@ -43,6 +65,8 @@ list.append(5);
 list.append(3);
 list.append(8);
 list.prepend(3);
-console.log(list.head);
-console.log(list.size);
-console.log(emptyList.size);
+console.log(list._head);
+console.log(list.size());
+console.log(emptyList.size());
+console.log(list.tail());
+console.log(list.at(5));
