@@ -75,6 +75,15 @@ class LinkedList {
     }
     return false;
   }
+
+  find(value) {
+    let curr = this._head;
+    while (curr) {
+        if (curr.val === value) return curr;
+        curr = curr.next;
+    }
+    return curr;
+  }
 }
 
 const list = new LinkedList();
@@ -94,3 +103,5 @@ console.log(list.size());
 console.log(list._head);
 console.log(list.tail());
 console.log(list.contains(8));
+console.log(list.find(5));
+console.log(list.find(9));
