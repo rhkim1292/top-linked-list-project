@@ -51,8 +51,8 @@ class LinkedList {
   at(index) {
     let curr = this._head;
     for (let i = 0; i < index; i++) {
-        curr = curr.next;
-        if (!curr) throw new Error('That index is out of bounds of the list!');
+      curr = curr.next;
+      if (!curr) throw new Error('That index is out of bounds of the list!');
     }
     return curr;
   }
@@ -61,8 +61,8 @@ class LinkedList {
     let curr = this._head;
     let prev = null;
     while (curr.next) {
-        prev = curr;
-        curr = curr.next;
+      prev = curr;
+      curr = curr.next;
     }
     prev.next = null;
   }
@@ -70,8 +70,8 @@ class LinkedList {
   contains(value) {
     let curr = this._head;
     while (curr) {
-        if (curr.val === value) return true;
-        curr = curr.next;
+      if (curr.val === value) return true;
+      curr = curr.next;
     }
     return false;
   }
@@ -79,8 +79,8 @@ class LinkedList {
   find(value) {
     let curr = this._head;
     while (curr) {
-        if (curr.val === value) return curr;
-        curr = curr.next;
+      if (curr.val === value) return curr;
+      curr = curr.next;
     }
     return curr;
   }
@@ -89,11 +89,26 @@ class LinkedList {
     let result = '';
     let curr = this._head;
     while (curr) {
-        result += `( ${curr.val} ) -> `;
-        curr = curr.next;
+      result += `( ${curr.val} ) -> `;
+      curr = curr.next;
     }
     result += 'null';
     return result;
+  }
+
+  insertAt(value, index) {
+    let curr = this._head;
+    let prev = null;
+	if (index === this.size()) {
+		this.append(value);
+		return;
+	}
+    for (let i = 0; i < index; i++) {
+      prev = curr;
+      curr = curr.next;
+      if (!curr) throw new Error('That index is out of bounds of the list!');
+    }
+    prev.next = new Node(value, curr);
   }
 }
 
@@ -110,11 +125,14 @@ console.log(emptyList.size());
 console.log(list.tail());
 console.log(list.contains(8));
 console.log(list.toString());
-list.pop()
+list.pop();
 console.log(list.size());
 console.log(list._head);
 console.log(list.tail());
 console.log(list.contains(8));
 console.log(list.find(5));
 console.log(list.find(9));
+console.log(list.toString());
+console.log(list.size());
+list.insertAt(4, 3);
 console.log(list.toString());
