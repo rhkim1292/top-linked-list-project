@@ -56,6 +56,16 @@ class LinkedList {
     }
     return curr;
   }
+
+  pop() {
+    let curr = this._head;
+    let prev = null;
+    while (curr.next) {
+        prev = curr;
+        curr = curr.next;
+    }
+    prev.next = null;
+  }
 }
 
 const list = new LinkedList();
@@ -69,4 +79,7 @@ console.log(list._head);
 console.log(list.size());
 console.log(emptyList.size());
 console.log(list.tail());
-console.log(list.at(5));
+list.pop()
+console.log(list.size());
+console.log(list._head);
+console.log(list.tail());
